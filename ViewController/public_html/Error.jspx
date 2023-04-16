@@ -5,7 +5,7 @@
     <f:view>
         <af:document title="Error.jspx" id="d1">
             <af:form id="f1">
-                <af:outputText value="ERROR PAGE PROVA" id="ot1"/>
+                <af:outputText value="ERROR PAGE PROVA 2" id="ot1"/>
             </af:form>
         </af:document>
     </f:view>
