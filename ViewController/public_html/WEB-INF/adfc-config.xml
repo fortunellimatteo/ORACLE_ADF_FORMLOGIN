@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Login">
+    <page>/Login.jspx</page>
+  </view>
+  <view id="Welcome">
+    <page>/Welcome.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id>Login</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>goToWelcome</from-outcome>
+      <to-activity-id>Welcome</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__3">
+    <from-activity-id>Welcome</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome>backToLogin</from-outcome>
+      <to-activity-id>Login</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+</adfc-config>

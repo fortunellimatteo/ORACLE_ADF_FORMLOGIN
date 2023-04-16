@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="LoginPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="doLogin_username" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="doLogin_password" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="doRegistration_username" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="doRegistration_password" IsQueriable="false"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="doLogin" RequiresUpdateModel="true" Action="invokeMethod" MethodName="doLogin"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.doLogin.dataControl.dataProvider">
+      <NamedData NDName="username" NDType="java.lang.String" NDValue="${bindings.doLogin_username}"/>
+      <NamedData NDName="password" NDType="java.lang.String" NDValue="${bindings.doLogin_password}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="username">
+      <AttrNames>
+        <Item Value="doLogin_username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="password">
+      <AttrNames>
+        <Item Value="doLogin_password"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doRegistration" RequiresUpdateModel="true" Action="invokeMethod" MethodName="doRegistration"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.doRegistration.dataControl.dataProvider">
+      <NamedData NDName="username" NDType="java.lang.String" NDValue="${bindings.doRegistration_username}"/>
+      <NamedData NDName="password" NDType="java.lang.String" NDValue="${bindings.doRegistration_password}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="username1">
+      <AttrNames>
+        <Item Value="doRegistration_username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="password1">
+      <AttrNames>
+        <Item Value="doRegistration_password"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
