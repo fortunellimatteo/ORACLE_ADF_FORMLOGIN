@@ -52,8 +52,23 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             
         ViewObject vo = findViewObject("LoginView1");
         Row row = vo.createRow();
+        // USER OR PASSWORD ARE BLANK
         if (username.trim().equals("") || password.trim().equals("")) {
             throw new JboException("Username or Password not valid");
+        }
+        // USER EXISTS YET
+        if (!username.trim().equals("")) {
+            ViewObject vo2 = findViewObject("LoginView1");
+
+            vo2.defineNamedWhereClauseParam("user",null,null);
+            vo2.setNamedWhereClauseParam("user", username);
+
+            vo2.setWhereClause("USERNAME like :user");
+            vo2.executeQuery();
+
+            if(!vo2.first() == null || vo2.first().equals(true)) {
+                throw new JboException("This user exists yet");
+            }
         }
         row.setAttribute("Username", username);
         row.setAttribute("Password", password);
