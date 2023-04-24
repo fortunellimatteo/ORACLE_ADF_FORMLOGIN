@@ -66,7 +66,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             vo2.setWhereClause("USERNAME like :user");
             vo2.executeQuery();
 
-            if(!vo2.first() == null || vo2.first().equals(true)) {
+            if(!(vou2.first() == null) || vo2.first().equals(true)) {
                 throw new JboException("This user exists yet");
             }
         }
